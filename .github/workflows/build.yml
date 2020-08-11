@@ -22,6 +22,8 @@
               sh ./rustup.sh -y
               source $HOME/.cargo/env
 
+              cargo install cross
+
               echo "${TOKEN}" | docker login https://docker.pkg.github.com \
                 -u meatlink --password-stdin
               
