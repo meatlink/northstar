@@ -1,7 +1,9 @@
 ---
-name: Hello world
+name: Build docker images
 on:
-  - push
+  push:
+    paths:
+      - docker/**
 
 jobs:
   build:
@@ -10,4 +12,4 @@ jobs:
     steps:
       - name: shell hello world
         run: |
-          env
+          echo 'build docker images and push to registry. But what tag should be used?'
