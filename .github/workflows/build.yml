@@ -1,0 +1,29 @@
+---
+    name: Build docker images
+    on:
+      push:
+        branches:
+          - dpotapov
+
+    jobs:
+      build:
+        name: Build docker images
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - env:
+              TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            run: |
+              apt update
+              apt install -y gcc
+              apt install -y libsodium-dev
+
+              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+              source $HOME/.cargo/env
+
+              echo "${TOKEN}" | docker login https://docker.pkg.github.com \
+                -u meatlink --password-stdin
+              
+              bundle add rake
+
+              bundle exec rake examples:build

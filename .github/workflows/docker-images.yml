@@ -4,17 +4,14 @@ on:
   push:
     tags:
       - docker-*
-    # paths:
-    #   - docker/**
 
 jobs:
   build:
-    name: Test
+    name: Build docker images
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: shell hello world
-        env:
+      - env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           
@@ -47,4 +44,3 @@ jobs:
 
           docker push \
             "docker.pkg.github.com/meatlink/northstar/x86_64-unknown-linux-gnu:${tag}"
-
