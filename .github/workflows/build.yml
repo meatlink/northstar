@@ -1,5 +1,5 @@
 ---
-    name: Build docker images
+    name: Build
     on:
       push:
         branches:
@@ -7,7 +7,7 @@
 
     jobs:
       build:
-        name: Build docker images
+        name: Build
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
@@ -18,7 +18,7 @@
               sudo apt install -y gcc
               sudo apt install -y libsodium-dev
 
-              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -y | sh
               source $HOME/.cargo/env
 
               echo "${TOKEN}" | docker login https://docker.pkg.github.com \
