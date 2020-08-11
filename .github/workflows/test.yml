@@ -18,4 +18,4 @@ jobs:
         run: |
           tag="$( echo "${GITHUB_REF}" | sed 's/refs\/tags\/docker-//' )"
           echo "docker build -t ${tag}"
-          echo "${TOKEN}" | docker login https://docker.pkg.github.com --user meatlink --password-stdin
+          echo "${TOKEN}" | docker login https://docker.pkg.github.com -u meatlink --password-stdin
