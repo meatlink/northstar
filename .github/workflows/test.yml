@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: shell hello world
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo "${GITHUB_CONTEXT}"
-          echo 'docker build -t TAG_NEEDED'
+          tag="$( echo "${GITHUB_REF}" | sed 's/refs\/tags\/docker-//' )"
+          echo 'docker build -t "${tag}"'
