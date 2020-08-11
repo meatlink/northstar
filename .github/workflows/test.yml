@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: shell hello world
-        run: echo 'hello world!'
+        run: |
+          env
