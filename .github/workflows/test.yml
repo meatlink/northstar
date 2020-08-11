@@ -2,8 +2,10 @@
 name: Build docker images
 on:
   push:
-    paths:
-      - docker/**
+    tags:
+      - docker-*
+    # paths:
+    #   - docker/**
 
 jobs:
   build:
@@ -12,4 +14,5 @@ jobs:
     steps:
       - name: shell hello world
         run: |
-          echo 'build docker images and push to registry. But what tag should be used?'
+          echo '${github.event}'
+          echo 'docker build -t TAG_NEEDED'
