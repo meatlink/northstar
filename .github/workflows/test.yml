@@ -15,4 +15,4 @@ jobs:
       - name: shell hello world
         run: |
           tag="$( echo "${GITHUB_REF}" | sed 's/refs\/tags\/docker-//' )"
-          echo 'docker build -t "${tag}"'
+          echo "docker build -t ${tag}"
