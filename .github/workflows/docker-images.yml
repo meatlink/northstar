@@ -25,14 +25,14 @@ jobs:
             
             image_name="$( echo "$f" | sed 's/Dockerfile\.//' )"
             
-            tag="docker.pkg.github.com/${GITHUB_REPOSITORY}/${image_name}:${tag}"
+            full_image_name="docker.pkg.github.com/${GITHUB_REPOSITORY}/${image_name}:${tag}"
 
             docker build \
-              -t "$tag" \
+              -t "$full_image_name" \
               -f "$f" \
               .
             
-            docker push "$tag"
+            docker push "$full_image_name"
 
           done
           
