@@ -32,8 +32,7 @@ jobs:
               -f "$f" \
               .
             
-            docker push \
-              "docker.pkg.github.com/meatlink/northstar/aarch64-linux-android:${tag}"
+            docker push "$tag"
 
           done
           
