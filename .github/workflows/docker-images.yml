@@ -14,10 +14,10 @@ jobs:
       - env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          
+          env
           tag="$( echo "${GITHUB_REF}" | sed 's/refs\/tags\/docker-//' )"
 
-          echo "${TOKEN}" | docker login https://docker.pkg.github.com -u meatlink --password-stdin
+          echo "${TOKEN}" | docker login https://docker.pkg.github.com -u "$GITHUB_REPOSITORY_OWNER" --password-stdin
           
           cd docker
 

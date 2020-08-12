@@ -3,7 +3,7 @@
     on:
       push:
         branches:
-          - dpotapov
+          - master
 
     jobs:
       build:
